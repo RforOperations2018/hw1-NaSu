@@ -1,0 +1,8 @@
+"0","#datacar <- data.frame(""name"" = c(mtcars[0]),""Miles/(US) gallon""=c(mtcars[1]))"
+"0","#datacar[""name""]"
+"0","#data1 <- subset(mtcars,select = c(1:4))"
+"0","#datacar[0]"
+"0","#names(datacar)[0] <- ""name"""
+"0","datacars <- mtcars"
+"0","name <- list(datacars[0])"
+"0","#datacar_rename <- rename(mtcars, from=c("""",""mpg"",""cyl"",""disp"",""hp""), to=c(""a"",""b"",""c"",""d"",""f""))"

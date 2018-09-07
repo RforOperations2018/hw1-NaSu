@@ -1,0 +1,3 @@
+"0","a <- c(1,2,5.3,6,-2,4) # numeric vector"
+"0","b <- c(""one"",""two"",""three"") # character vector"
+"0","c <- c(TRUE,TRUE,TRUE,FALSE,TRUE,FALSE) #logical vector"

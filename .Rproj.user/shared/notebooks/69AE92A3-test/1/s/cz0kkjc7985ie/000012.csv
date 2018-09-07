@@ -1,0 +1,5 @@
+"0","require(dplyr)"
+"0","data1 <- subset(mtcars,select = c(1:4))"
+"0","name <- row.names.data.frame(mtcars)"
+"0","newdata <- data.frame(name,data1)"
+"0","#class(row.names.data.frame(mtcars))"
