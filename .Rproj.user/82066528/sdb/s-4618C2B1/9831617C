@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "#\n# This is a Shiny web application. You can run the application by clicking\n# the 'Run App' button above.\n#\n# Find out more about building applications with Shiny here:\n#\n#    http://shiny.rstudio.com/\n#\n\nlibrary(shiny)\nlibrary(reshape2)\nlibrary(dplyr)\nlibrary(plotly)\nlibrary(shinythemes)\n\nlibrary(shiny)\nlibrary(reshape2)\nlibrary(dplyr)\nlibrary(plotly)\nlibrary(shinythemes)\n\n\ndata1 <- subset(mtcars,select = c(1:4))\nname <- row.names.data.frame(mtcars)\nnewdata <- data.frame(name,data1)\nnewdata$name <- as.factor(newdata$name)\n\npdf(NULL)\n\n# Define UI for application that draws a histogram\nui <- fluidPage(\n  navbarPage(\"Star Wars NavBar\", \n             theme = shinytheme(\"united\"),\n             tabPanel(\"Plot\",\n                      sidebarLayout(\n                        sidebarPanel(\n                          selectInput(\"char_select\",\n                                      \"Characters:\",\n                                      choices = levels(newdata$name),\n                                      multiple = TRUE,\n                                      selectize = TRUE,\n                                      selected = c(\"Mazda RX4\", \"Duster 360\"))\n                        ),\n                        # Output plot\n                        mainPanel(\n                          plotlyOutput(\"plot\")\n                        )\n                      )\n             ),\n             # Data Table\n             tabPanel(\"Table\",\n                      fluidPage(DT::dataTableOutput(\"table\"))\n             )\n  )\n)\n\n# Define server logic\nserver <- function(input, output) {\n  output$plot <- renderPlotly({\n    datcars <- subset(newdata, name %in% input$char_select)\n    ggplot(data = datcars, aes(x = name, y = as.numeric(mpg), fill = name)) + geom_bar(stat = \"identity\") + theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))\n  })\n  output$table <- DT::renderDataTable({\n    subset(newdata, name %in% input$char_select, select = c(name, mpg, cyl, disp, hp))\n  })\n}\n\n# Run the application \nshinyApp(ui = ui, server = server)\n\n",
+    "created" : 1536270230806.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2572750879",
+    "id" : "9831617C",
+    "lastKnownWriteTime" : 1536352466,
+    "last_content_update" : 1536352466610,
+    "path" : "C:/Users/sunas/Desktop/Courses/R shiny/hw1-NaSu/hw1-NaSu/app.R",
+    "project_path" : "hw1-NaSu/app.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

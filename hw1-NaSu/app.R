@@ -39,7 +39,7 @@ ui <- fluidPage(
                                       choices = levels(newdata$name),
                                       multiple = TRUE,
                                       selectize = TRUE,
-                                      selected = c("Mazda RX4", "Duster 360", "Honda Civic", "Ford Pantera L", "Merc 450SE"))
+                                      selected = c("Mazda RX4", "Duster 360"))
                         ),
                         # Output plot
                         mainPanel(
