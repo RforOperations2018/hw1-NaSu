@@ -14,7 +14,7 @@ library(dplyr)
 library(plotly)
 library(DT)
 
-
+# In the future the dplyr package might make all your data cleaning a bit easier. No pts removed.
 data1 <- subset(mtcars,select = c(1:4))
 name <- row.names.data.frame(mtcars)
 newdata <- data.frame(name,data1)
@@ -27,6 +27,7 @@ ui <- fluidPage(
   fluidRow(
     column(4,
            wellPanel(
+             # The label should probably be renamed here since we're selecting Models of cars not characters. I deducted a few UI pts
              selectInput("char_select",
                          "Characters:",
                          choices = levels(newdata$name),
